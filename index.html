@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#0b0a0d" />
+  <meta name="description" content="Faya Cartes — crée une invitation premium en quelques secondes." />
+  <title>Faya Cartes — Créateur</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="noise"></div>
+
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-mark">F</span>
+      <span>FAYA <em>CARTES</em></span>
+    </div>
+    <div class="status" id="status"><span></span> Prêt</div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <p class="eyebrow">CRÉATEUR PREMIUM</p>
+      <h1>Une carte qui<br><i>marque les esprits.</i></h1>
+      <p class="hero-copy">Décris ton événement. Faya compose une invitation élégante, prête à partager.</p>
+    </section>
+
+    <section class="workspace">
+      <div class="preview-panel">
+        <div class="preview-head">
+          <span>APERÇU</span>
+          <span id="previewHint">Remplis les informations</span>
+        </div>
+        <div class="preview-frame">
+          <div class="fake-card" id="liveCard">
+            <div class="ornament top">✦</div>
+            <div class="fake-occasion" id="pOccasion">MARIAGE</div>
+            <div class="fake-line"></div>
+            <div class="fake-names" id="pNames">Aïcha<br><span>&amp;</span> Moussa</div>
+            <div class="fake-info">
+              <strong id="pDate">26 juillet 2026</strong>
+              <span id="pTime">15H00</span>
+              <span id="pLocation">Douala, Cameroun</span>
+            </div>
+            <div class="fake-message" id="pMessage">Votre présence sera un honneur et une grande joie pour nous.</div>
+            <div class="ornament bottom">✦</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-panel">
+        <div class="section-title">
+          <span>01</span>
+          <div><h2>Ton événement</h2><p>Les informations qui apparaîtront sur la carte.</p></div>
+        </div>
+
+        <div class="grid">
+          <label class="field full">
+            <span>Occasion</span>
+            <select id="occasion">
+              <option>Mariage</option>
+              <option>Fiançailles</option>
+              <option>Baptême</option>
+              <option>Anniversaire</option>
+              <option>Naissance</option>
+              <option>Décès / Condoléances</option>
+              <option>Cérémonie</option>
+              <option>Événement</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Premier nom</span>
+            <input id="name1" value="Aïcha" maxlength="80" />
+          </label>
+          <label class="field">
+            <span>Deuxième nom</span>
+            <input id="name2" value="Moussa" maxlength="80" />
+          </label>
+
+          <label class="field">
+            <span>Date</span>
+            <input id="date" value="26 juillet 2026" maxlength="80" />
+          </label>
+          <label class="field">
+            <span>Heure</span>
+            <input id="time" value="15H00" maxlength="40" />
+          </label>
+
+          <label class="field full">
+            <span>Lieu</span>
+            <input id="location" value="Douala, Cameroun" maxlength="120" />
+          </label>
+
+          <label class="field full">
+            <span>Message</span>
+            <textarea id="message" maxlength="400">Votre présence sera un honneur et une grande joie pour nous.</textarea>
+          </label>
+        </div>
+
+        <div class="section-title second">
+          <span>02</span>
+          <div><h2>Direction artistique</h2><p>Choisis l'ambiance de ta carte.</p></div>
+        </div>
+
+        <div class="style-grid" id="styleGrid">
+          <button class="style-card active" data-style="Bleu nuit profond, ivoire et or, floral et oriental">
+            <span class="swatch navy"></span><strong>Nuit &amp; Or</strong><small>Luxueux · Oriental</small>
+          </button>
+          <button class="style-card" data-style="Ivoire chaud, champagne et or, fleurs délicates et romantique">
+            <span class="swatch ivory"></span><strong>Champagne</strong><small>Romantique · Doux</small>
+          </button>
+          <button class="style-card" data-style="Rose poudré, blanc cassé et or, bouquets floraux élégants">
+            <span class="swatch rose"></span><strong>Rose poudré</strong><small>Floral · Élégant</small>
+          </button>
+          <button class="style-card" data-style="Blanc lumineux, bleu ciel et argent, fleurs fines et délicates">
+            <span class="swatch sky"></span><strong>Bleu ciel</strong><small>Pur · Raffiné</small>
+          </button>
+        </div>
+
+        <label class="field full">
+          <span>Détail supplémentaire <small>(facultatif)</small></span>
+          <textarea id="extra" maxlength="300" placeholder="Ex. lanternes, mosquée en silhouette, beaucoup de dorures...">Élégant, luxueux, floral, oriental et chaleureux.</textarea>
+        </label>
+
+        <button class="generate" id="generate">
+          <span class="generate-icon">✦</span>
+          <span><strong>Générer ma carte</strong><small>Créer avec Faya</small></span>
+          <span class="arrow">→</span>
+        </button>
+
+        <div class="loading" id="loading" hidden>
+          <div class="spinner"></div>
+          <div><strong>Faya compose ta carte…</strong><span>La création peut prendre quelques secondes.</span></div>
+        </div>
+
+        <div class="error" id="error" hidden></div>
+      </div>
+    </section>
+
+    <section class="result-section" id="resultSection" hidden>
+      <div class="result-head">
+        <div>
+          <p class="eyebrow">TA CRÉATION</p>
+          <h2>Voilà ta carte.</h2>
+        </div>
+        <button class="download" id="download">Télécharger <span>↓</span></button>
+      </div>
+      <div class="result-card">
+        <img id="result" alt="Carte générée par Faya Cartes" />
+      </div>
+    </section>
+  </main>
+
+  <footer>FAYA CARTES · CRÉER DES MOMENTS QUI RESTENT</footer>
+  <script src="/app.js"></script>
+</body>
+</html>
